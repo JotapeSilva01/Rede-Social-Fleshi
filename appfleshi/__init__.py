@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///datafleshi.db"
-app.config['SECRET_kEY'] = 'secret'
+app.config['SECRET_KEY'] = 'secret'
 
 database = SQLAlchemy(app)
 bcrypt = Bcrypt(app)

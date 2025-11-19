@@ -1,11 +1,16 @@
 from flask import render_template
 from flask_login import login_required
-
 from appfleshi import app
+from appfleshi.forms import LoginForm, RegisterForm
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def homepage():
-    return render_template('homepage.html')
+    return render_template('homepage.html', form=LoginForm())
+
+@app.route("/createaccount", methods=['GET', 'POST'])
+def createaccount():
+    register_form = RegisterForm()
+    return render_template('createaccount.html', form=register_form)
 
 
 @app.route("/profile/<username>")
@@ -13,3 +18,4 @@ def homepage():
 def perfil(username):
 
     return render_template('profile.html', username=username)
+
