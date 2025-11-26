@@ -11,8 +11,9 @@
 <body>
     <h1>Fléshi</h1>
 
-    <form method="post">
-     {{ form.csrf_token }}
+    {% block form %}
+        <form method="post">
+        {{ form.csrf_token }}
         {{ form.email.label() }}
         {{ form.email() }}
 
@@ -20,7 +21,8 @@
         {{ form.password() }}
 
         {{ form.submit() }}
-    </form>
+        </form>
+    {% endblock %}
 </body>
 {% endblock %}
 </html>
